@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+string solution(long n) {
+    long even = 0, odd = 0;
+
+  for (int i = 1; i < sqrt(n); i++) {
+    if (n%i == 0) {
+      if (n/i == i) {
+        if (i%2==0) { even++; }
+        else { odd++; }
+      }
+      else {
+        if (i%2==0) { even++; }
+        else { odd++; }
+
+        if ((n/i)%2==0) { even++; }
+        else { odd++; }
+      }
+    }
+  }
+
+  if (even > odd) {
+    return "BUY";
+  } else if (odd > even) {
+    return "SELL";
+  } else {
+    return "PASS";
+  }
+}
+ 
+int main() {
+	long n;
+	cin >> n;	
+  	string answer=solution(n);
+	cout << answer << endl;
+    
+}
